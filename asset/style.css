@@ -1,0 +1,41 @@
+body{
+    background: linear-gradient(to right, #ACB6E5, #74ebd5);
+}
+
+.sp-thongbao {
+    color: red;
+    margin-left: 2px; 
+    display: none;
+}
+  
+.managerCard{
+    background-color: white;
+    padding: 20px;
+}
+.modal-body .group-input .input-1 i{
+    display: inline;
+}
+#check_type{
+    height: 38px;
+    cursor: pointer;
+
+}
+#style_select{
+    display: flex;
+}
+#check_CV{
+    cursor: pointer;
+}
+
+#student_math,
+#student_physics,
+#student_chemistry,
+#employee_day,
+#employee_salary,
+#customer_company,
+#customer_bill,
+#customer_rate{
+    display: none;
+}
+
+
