@@ -121,7 +121,7 @@ function getInfoUser() {
     return null;
   }
   if (domSelectedCV == 0) {
-    const person = new Person(domTen, domAddress, domEmail, domChucvu);
+    const person = new Person(domId, domTen, domEmail, domAddress, domChucvu);
     return person;
   } else if (domSelectedCV == 1) {
     const student = new Student(
@@ -162,7 +162,20 @@ function getInfoUser() {
     return customer;
   }
 }
-document.getElementById("btnAdd1").onclick = function () {
+document.getElementById("btnAdd1").onclick = function (event) {
+  document.getElementById("id_user").value = "";
+  document.getElementById("name").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("address").value = "";
+  document.getElementById("chucvu").value = "Default";
+  document.getElementById("math").value = "";
+  document.getElementById("physics").value = "";
+  document.getElementById("chemistry").value = "";
+  document.getElementById("day").value = "";
+  document.getElementById("salary").value = "";
+  document.getElementById("company").value = "";
+  document.getElementById("bill").value = "";
+
   document.getElementById("modal__footer").innerHTML = `
   <button class="btn btn-success" id="add_person">Add</button>
   `;
@@ -174,7 +187,7 @@ document.getElementById("exampleModal").onclick = function (event) {
   const persons = getInfoUser();
   if (persons) {
     listPerson.pushArray(persons);
-    // document.getElementsByClassName("close")[0].click();
+    document.getElementsByClassName("close")[0].click();
     renderPerson(listPerson.arrayPerson);
     setLocalSTorage(listPerson.arrayPerson);
   }
@@ -375,12 +388,13 @@ document.getElementById("modal__footer").onclick = function (event) {
   if (event.target.id !== "update_btn") {
     return;
   }
-  document.getElementsByClassName("close")[0].click();
   const person = getInfoUser();
-  console.log(person);
-  listPerson.updateUser(person);
-  renderPerson(listPerson.arrayPerson);
-  setLocalSTorage(listPerson.arrayPerson);
+  if (person) {
+    document.getElementsByClassName("close")[0].click();
+    listPerson.updateUser(person);
+    renderPerson(listPerson.arrayPerson);
+    setLocalSTorage(listPerson.arrayPerson);
+  }
 };
 
 document.getElementById("sap_xep_ten").onchange = function () {
