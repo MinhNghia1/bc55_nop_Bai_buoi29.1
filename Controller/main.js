@@ -79,44 +79,58 @@ function getInfoUser() {
     "tbChucVu",
     "Yêu cầu chọn chức vụ"
   );
-  // isValid &=
-  //   validation.kiemTraRong(domMath, "tbToan", "Yêu cầu không bỏ trống") &&
-  //   validation.kiemTraGioiHan(domMath, "tbToan", "chi nhap tu 1 -> 10");
-  // isValid &=
-  //   validation.kiemTraRong(domPhysics, "tbphysics", "Yêu cầu không bỏ trống") &&
-  //   validation.kiemTraGioiHan(domPhysics, "tbphysics", "chi nhap tu 1 -> 10");
-  // isValid &=
-  //   validation.kiemTraRong(
-  //     domChemistry,
-  //     "tbchemistry",
-  //     "Yêu cầu không bỏ trống"
-  //   ) &&
-  //   validation.kiemTraGioiHan(
-  //     domChemistry,
-  //     "tbchemistry",
-  //     "chi nhap tu 1 -> 10"
-  //   );
-  // isValid &= validation.kiemTraRong(domDay, "tbday", "Yêu cầu không bỏ trống");
-  // isValid &= validation.kiemTraRong(
-  //   domSalary,
-  //   "tbsalary",
-  //   "Yêu cầu không bỏ trống"
-  // );
-  // isValid &= validation.kiemTraRong(
-  //   domCompany,
-  //   "tbTencompany",
-  //   "Yêu cầu không bỏ trống"
-  // );
-  // isValid &= validation.kiemTraRong(
-  //   domBill,
-  //   "tbbill",
-  //   "Yêu cầu không bỏ trống"
-  // );
-  // isValid &= validation.kiemTraSelect(
-  //   "rate",
-  //   "tbrate",
-  //   "Yêu cầu chọn đánh giá"
-  // );
+
+  if (domChucvu === "Student") {
+    isValid &=
+      validation.kiemTraRong(domMath, "tbToan", "Yêu cầu không bỏ trống") &&
+      validation.kiemTraGioiHan(domMath, "tbToan", "chi nhap tu 1 -> 10");
+    isValid &=
+      validation.kiemTraRong(
+        domPhysics,
+        "tbphysics",
+        "Yêu cầu không bỏ trống"
+      ) &&
+      validation.kiemTraGioiHan(domPhysics, "tbphysics", "chi nhap tu 1 -> 10");
+    isValid &=
+      validation.kiemTraRong(
+        domChemistry,
+        "tbchemistry",
+        "Yêu cầu không bỏ trống"
+      ) &&
+      validation.kiemTraGioiHan(
+        domChemistry,
+        "tbchemistry",
+        "chi nhap tu 1 -> 10"
+      );
+  } else if (condition) {
+    isValid &= validation.kiemTraRong(
+      domDay,
+      "tbday",
+      "Yêu cầu không bỏ trống"
+    );
+    isValid &= validation.kiemTraRong(
+      domSalary,
+      "tbsalary",
+      "Yêu cầu không bỏ trống"
+    );
+  } else {
+    isValid &= validation.kiemTraRong(
+      domCompany,
+      "tbTencompany",
+      "Yêu cầu không bỏ trống"
+    );
+    isValid &= validation.kiemTraRong(
+      domBill,
+      "tbbill",
+      "Yêu cầu không bỏ trống"
+    );
+    isValid &= validation.kiemTraSelect(
+      "rate",
+      "tbrate",
+      "Yêu cầu chọn đánh giá"
+    );
+  }
+
   if (!isValid) {
     return null;
   }

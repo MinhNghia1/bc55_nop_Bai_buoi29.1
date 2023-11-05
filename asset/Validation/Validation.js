@@ -17,13 +17,13 @@ export default class Validation {
     var regexEmail =
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     var isvalid = regexEmail.test(value);
-    if (isvalid) {
-      theDom.innerHTML = "";
-      return true;
-    } else {
+    if (!isvalid) {
       theDom.innerHTML = mess;
       theDom.style.display = "block";
       return false;
+    } else {
+      theDom.innerHTML = "";
+      return true;
     }
   }
   kiemTraDoDai(value, max, min, idCanhBao, mess) {
