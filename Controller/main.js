@@ -102,7 +102,7 @@ function getInfoUser() {
         "tbchemistry",
         "chi nhap tu 1 -> 10"
       );
-  } else if (condition) {
+  } else if (domChucvu === "Employee") {
     isValid &= validation.kiemTraRong(
       domDay,
       "tbday",
@@ -113,7 +113,7 @@ function getInfoUser() {
       "tbsalary",
       "Yêu cầu không bỏ trống"
     );
-  } else {
+  } else if (domChucvu === "Customer") {
     isValid &= validation.kiemTraRong(
       domCompany,
       "tbTencompany",
@@ -176,7 +176,7 @@ function getInfoUser() {
     return customer;
   }
 }
-document.getElementById("btnAdd1").onclick = function (event) {
+document.getElementById("btnAdd1").onclick = function () {
   document.getElementById("id_user").value = "";
   document.getElementById("name").value = "";
   document.getElementById("email").value = "";
